@@ -1,3 +1,4 @@
+[![](https://images.microbadger.com/badges/image/jerheij/powerdns-recursor.svg)](https://microbadger.com/images/jerheij/powerdns-recursor "Get your own image badge on microbadger.com")
 ## Simple PowerDNS recursor container
 
 ### Sources
