@@ -14,13 +14,20 @@ dont-query=
 
 EOF
 
-echo
-echo "Creating forward.zone..."
-echo "### Local forwards:" >> /etc/pdns-recursor/forward.zone
-for Domain in ${DOMAINS}
-do
-  echo "${Domain}=${DOMAINS_FORWARDER}:53" >> /etc/pdns-recursor/forward.zone
-done 
+if [[ ! -z ${DOMAINS} ]]
+then
+  echo
+  echo "Creating forward.zone..."
+  echo "### Local forwards:" >> /etc/pdns-recursor/forward.zone
+  for Domain in ${DOMAINS}
+  do
+    echo "${Domain}=${DOMAINS_FORWARDER}:53" >> /etc/pdns-recursor/forward.zone
+  done 
+else
+  echo
+  echo "No forward domains, not applying related configs!"
+fi
+
 
 echo
 echo "Config files:"
