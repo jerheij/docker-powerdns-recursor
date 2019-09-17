@@ -28,7 +28,7 @@ then
   echo "Forward zone:"
   cat /etc/pdns-recursor/forward.zone
 else
-  sed -i '~forward-zones-file=/etc/pdns-recursor/forward.zone~d' /etc/pdns-recursor/conf.d/docker.conf
+  sed -i '/forward-zones-file=/etc/pdns-recursor/forward.zone/d' /etc/pdns-recursor/conf.d/docker.conf
   echo
   echo "No forward domains, not applying related configs!"
 fi
