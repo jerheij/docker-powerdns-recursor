@@ -23,7 +23,12 @@ then
   do
     echo "${Domain}=${DOMAINS_FORWARDER}:53" >> /etc/pdns-recursor/forward.zone
   done 
+
+  echo
+  echo "Forward zone:"
+  cat /etc/pdns-recursor/forward.zone
 else
+  sed -i '~forward-zones-file=/etc/pdns-recursor/forward.zone~d' /etc/pdns-recursor/conf.d/docker.conf
   echo
   echo "No forward domains, not applying related configs!"
 fi
@@ -32,9 +37,6 @@ fi
 echo
 echo "Config files:"
 find /etc/pdns-recursor/
-
-echo "Forward zone:"
-cat /etc/pdns-recursor/forward.zone
 
 echo
 echo "Deployment done!"
