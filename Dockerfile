@@ -1,8 +1,8 @@
-FROM centos:latest
+FROM centos:7
 COPY entry.sh /entry.sh
 RUN sed -i 's~enabled=1~enabled=0~g' /etc/yum/pluginconf.d/fastestmirror.conf && \
     rm -f /var/cache/yum/timedhosts.txt && \
-    yum check-update && \
+    yum check-update ; \
     yum update -y
 
 RUN yum install epel-release -y && \
