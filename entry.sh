@@ -4,7 +4,7 @@ echo
 echo "Creating different powerdns configuration files..."
 sed -i 's~# include-dir=~include-dir=/etc/pdns-recursor/conf.d~g' /etc/pdns-recursor/recursor.conf
 
-mkdir /etc/pdns-recursor/conf.d
+mkdir /etc/pdns-recursor/conf.d  /run/pdns-recursor
 cat <<EOF > /etc/pdns-recursor/conf.d/docker.conf
 
 forward-zones-recurse=.=${WILDCARD_FORWARDERS}
