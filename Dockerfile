@@ -6,6 +6,7 @@ RUN dnf check-update ; \
 
 RUN dnf install epel-release -y && \
     dnf install pdns-recursor bind-utils -y && \
+    dnf remove geolite2* -y && \
     dnf clean all && \
     chmod +x /*.sh
 EXPOSE 53
