@@ -1,9 +1,9 @@
-FROM centos:latest
+FROM oraclelinux:8
 HEALTHCHECK --interval=35s --timeout=4s CMD host -W 1 -t AAAA www.google.com localhost
 COPY entry.sh /entry.sh
 RUN dnf check-update ; \
     dnf update -y && \
-    dnf install epel-release -y && \
+    dnf install oracle-epel-release-el8 -y && \
     dnf install pdns-recursor bind-utils -y && \
     dnf remove geolite2* -y && \
     dnf clean all && \
